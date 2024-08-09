@@ -174,8 +174,6 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
@@ -743,7 +741,7 @@ footer {
 
   .main-navbar {
     display: flex;
-    align-items: center;
+    flex-direction: column;
   }
   img {
     width: 50%;
@@ -759,5 +757,13 @@ footer {
 
   .topnav a.icon {
     font-size: 18px;
+  }
+
+  .content {
+    margin-top: 4em;
+  }
+
+  .bground {
+    background-color: transparent;
   }
 }
