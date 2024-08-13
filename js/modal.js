@@ -19,7 +19,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", () => {
   modalbg.style.display = "block";
 }));
 
-function displayForm () {
+function displayForm() {
   btnDisplay.style.display = "none";
   confirmationMessage.innerText = '';
   confirmationMessage.style.display = "none";
@@ -36,7 +36,7 @@ closeBtn.addEventListener("click", () => {
 
 // close button modal
 btnDisplay.addEventListener("click", () => {
-  modalbg.style.display ="none";
+  modalbg.style.display = "none";
   displayForm();
 })
 
@@ -59,7 +59,7 @@ function validateForm(event) {
     number: true,
     radio: true,
     checkbox: true
-  }; 
+  };
 
   // Je déclare des functions de validations qui seront reutilisable dans d'autres petites functions
   isValid.prenom = validatePrenomField('first', 'firstNameError', 2, 'Le champ prénom doit contenir au moins 2 caractères');
@@ -137,10 +137,19 @@ function validateDateField(fieldId, errorId, errorMessage) {
   if (!value) {
     errorField.innerText = errorMessage;
     return false;
-  } else {
-    errorField.innerText = '';
-    return true;
   }
+  const datePattern = /^\d{2}-\d{2}-\d{4}$/;
+  if (!datePattern.test(value)) {
+    errorField.innerText = "Le format de la date doit être YYYY-MM-DD.";
+    return false;
+  }
+  const date = new Date(value);
+  if (isNaN(date.getTime())) {
+    errorField.innerText = "La date saisie est invalide.";
+    return false;
+  }
+  errorField.innerText = '';
+  return true;
 }
 
 // Validate number field
