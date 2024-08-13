@@ -138,9 +138,9 @@ function validateDateField(fieldId, errorId, errorMessage) {
     errorField.innerText = errorMessage;
     return false;
   }
-  const datePattern = /^\d{2}-\d{2}-\d{4}$/;
+  const datePattern = /^\d{4}-\d{2}-\d{2}$/;
   if (!datePattern.test(value)) {
-    errorField.innerText = "Le format de la date doit être YYYY-MM-DD.";
+    errorField.innerText = "Le format de la date doit être YY-MM-DDDD.";
     return false;
   }
   const date = new Date(value);
